@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 import { auth,firestore } from '../firebase';
 import { collection,addDoc } from 'firebase/firestore';
+import car from "../assets/car.jpeg";
  
 const Signup = () => {
     const navigate = useNavigate();
@@ -31,13 +32,17 @@ const Signup = () => {
     }
  
   return (
-    <main >        
-        <section>
-            <div>
-                <div>                  
-                    <h1> CarRentalSystem </h1>                                                                            
+    <main className='text-white'>        
+        <div >
+            <div className='flex w-[100vw] h-[100vh]'>
+                <div className='w-[60%] h-[100%]'>
+                    <img src={car} alt="" className='h-[100%]' />
+                </div>
+                <div className='h-[100%] p-8'>                  
+                    <h1 className='text-3xl font-bold'> SignUp </h1>   
+                    <span>Register yourself to access the application</span>                                                                         
                     <form>                                                                                            
-                        <div>
+                        <div className='flex flex-col mt-6'>
                             <label htmlFor="email-address">
                                 Email address
                             </label>
@@ -47,11 +52,12 @@ const Signup = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}  
                                 required                                    
-                                placeholder="Email address"                                
+                                placeholder="Email address"  
+                                className='bg-transparent border-gray-50 rounded-sm border-2 p-2'                              
                             />
                         </div>
 
-                        <div>
+                        <div className='flex flex-col mt-6'>
                             <label htmlFor="password">
                                 Password
                             </label>
@@ -61,28 +67,30 @@ const Signup = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} 
                                 required                                 
-                                placeholder="Password"              
+                                placeholder="Password"  
+                                className='bg-transparent border-gray-50 rounded-sm border-2 p-2'            
                             />
                         </div>                                             
                         
                         <button
                             type="submit" 
-                            onClick={onSubmit}                        
+                            onClick={onSubmit}   
+                            className='mt-8 bg-white text-black px-5 py-1 rounded-sm w-[50%]'                     
                         >  
                             Sign up                                
                         </button>
                                                                      
                     </form>
                    
-                    <p>
+                    <p className='mt-4'>
                         Already have an account?{' '}
-                        <NavLink to="/login" >
+                        <NavLink to="/login" className="border-b-2 border-gray-50" >
                             Sign in
                         </NavLink>
                     </p>                   
                 </div>
             </div>
-        </section>
+        </div>
     </main>
   )
 }
