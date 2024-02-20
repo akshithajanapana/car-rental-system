@@ -1,10 +1,11 @@
 import React from 'react';
 import {  signOut } from "firebase/auth";
 import {auth} from '../firebase';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
  
 const Home = () => {
     const navigate = useNavigate();
+    const location = useLocation();
  
     const handleLogout = () => {               
         signOut(auth).then(() => {
@@ -18,9 +19,9 @@ const Home = () => {
    
     return(
         <>
-            <nav>
+            <nav className='text-white'>
                 <p>
-                    Welcome 
+                    Welcome  Test 1
                 </p>
  
                 <div>

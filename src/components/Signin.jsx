@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
 import { auth} from '../firebase';
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, } from 'react-router-dom'
 import car from "../assets/car.jpeg";
  
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            navigate("/home")
+           navigate("/home");
             console.log(user);
         })
         .catch((error) => {
